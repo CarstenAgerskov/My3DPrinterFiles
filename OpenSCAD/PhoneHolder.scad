@@ -45,7 +45,7 @@ module holder() {
     translate([baseThickness+4.5,baseThickness+4.5,4]) opening();
     translate([phoneInCaseWidth/2+baseThickness-24/2,-1,baseThickness+0.5])cube([24,20,20]);
     translate([-20,80,-20]) cube(200,200,200);
-    translate([phoneInCaseWidth/2+baseThickness,60,1]) holes();
+/*    translate([phoneInCaseWidth/2+baseThickness,60,1]) holes();*/
   }
 }
 
