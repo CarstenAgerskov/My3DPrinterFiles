@@ -32,16 +32,15 @@ module side() {
 module shelveRail() {
 	difference() {
 		union() {
-			cube([w,baseThickness,shelveRailH+baseThickness]);
-			cube([w,shelveH+2*baseThickness+2*e,baseThickness]);
-			translate([0,shelveH+baseThickness+2*e,0]) cube([w,baseThickness,shelveRailH+baseThickness]);
-			translate([0,shelveH+2*baseThickness+2*e,0]) cube([shelveH,baseThickness,shelveRailH+baseThickness]);
-			translate([w-shelveH,shelveH+2*baseThickness+2*e,0]) cube([shelveH,baseThickness,shelveRailH+baseThickness]);
-			translate([baseThickness,shelveH+3*baseThickness+2*e,baseThickness-e]) rotate([0,-90,0]) triangle(shelveH,shelveH,baseThickness);
-			translate([w,shelveH+3*baseThickness+2*e,baseThickness-e]) rotate([0,-90,0]) triangle(shelveH,shelveH,baseThickness);
-		}
-		translate([shelveRailH/2,shelveH+baseThickness+2*e,shelveRailH/2+baseThickness]) rotate([-90,0,0]) hole();
-		translate([w-shelveRailH/2,shelveH+baseThickness+2*e,shelveRailH/2+baseThickness]) rotate([-90,0,0]) hole();
+		cube([w,baseThickness,shelveRailH+baseThickness]);
+		cube([w,shelveH+2*baseThickness+2*e,baseThickness]);
+		translate([0,shelveH+baseThickness+2*e,0]) cube([shelveH,2*baseThickness,shelveRailH+baseThickness]);
+		translate([w-shelveH,shelveH+baseThickness+2*e,0]) cube([shelveH,2*baseThickness,shelveRailH+baseThickness]);
+		translate([baseThickness,shelveH+3*baseThickness+2*e,baseThickness-e]) rotate([0,-90,0]) triangle(shelveH,shelveH,baseThickness);
+		translate([w,shelveH+3*baseThickness+2*e,baseThickness-e]) rotate([0,-90,0]) triangle(shelveH,shelveH,baseThickness);
+	}
+	translate([shelveRailH/2,shelveH+baseThickness+2*e,shelveRailH/2+baseThickness]) rotate([-90,0,0]) hole();
+	translate([w-shelveRailH/2,shelveH+baseThickness+2*e,shelveRailH/2+baseThickness]) rotate([-90,0,0]) hole();
    }
 }
 
@@ -53,8 +52,8 @@ module top() {
 		translate([0,0,baseThickness]) rotate([90,-90,90]) triangle(shelveH,shelveH,baseThickness);
 		translate([w-baseThickness,0,baseThickness]) rotate([90,-90,90]) triangle(shelveH,shelveH,baseThickness);
 	}
-	translate([shelveRailH/2,0,shelveRailH/2+baseThickness]) rotate([-90,0,0]) hole();
-	translate([w-shelveRailH/2,0,shelveRailH/2+baseThickness]) rotate([-90,0,0]) hole();
+	#translate([shelveRailH/2,counterSunkH+baseThickness/2,shelveRailH/2+baseThickness]) rotate([90,0,0]) hole();
+	#translate([w-shelveRailH/2,counterSunkH+baseThickness/2,shelveRailH/2+baseThickness]) rotate([90,0,0]) hole();
    }
 }
 
@@ -67,5 +66,3 @@ module hole() {
 translate([0,shelveH+2*baseThickness,0]) side();
 shelveRail();
 translate([0,h+shelveH,0]) top();
-
-
