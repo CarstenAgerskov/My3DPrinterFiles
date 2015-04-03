@@ -1,7 +1,7 @@
-baseThickness = 3;
-phoneInCaseWidth=75;
-phoneInCaseHeight=13;
-openingWidth=66;
+baseThickness = 2;
+phoneInCaseWidth=77;
+phoneInCaseHeight=20;
+openingWidth=68;
 $fn=40;
 
 module phoneMockup() {
@@ -31,7 +31,7 @@ module holderShell(wallThickness) {
 module opening() {
   hull() {
     resize([openingWidth,0,0], auto=true) phoneMockup();
-    translate([0,0,10]) resize([openingWidth,0,0], auto=true) phoneMockup();
+    translate([0,0,17]) resize([openingWidth,0,0], auto=true) phoneMockup();
   }
 }
 
@@ -59,8 +59,12 @@ module holes() {
 }
 
 
-holder();
 
 
+
+difference() {
+rotate([90,0,0]) holder();
+#translate([0,-50,-1]) cube([100,100,70]);
+}
 
 
